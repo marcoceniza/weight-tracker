@@ -3,9 +3,16 @@
 use App\Http\Controllers\Admin\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\DeviceController;
 use App\Http\Controllers\Admin\RegisteredUserController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => response()->json(['message' => 'Weight Tracker Admin API']));
+
+Route::get('/health', function () {
+    DB::select('select 1');
+
+    return response('ok', 200)->header('Content-Type', 'text/plain');
+});
 
 Route::get('/admin/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/admin/register', [RegisteredUserController::class, 'store'])

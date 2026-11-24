@@ -2,7 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Check, Pencil, Target, Trash2 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, Text, TextInput, TouchableOpacity, View, type TextInputInstance } from 'react-native';
 import { UserProfile, WeightUnit } from '../types';
 import { convertWeight, toKilograms } from '../utils/calculations';
 
@@ -32,7 +32,7 @@ export function SettingsView({
   const [heightCm, setHeightCm] = useState(profile.heightCm || 170);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [isEditingName, setIsEditingName] = useState(false);
-  const nameInputRef = useRef<TextInput>(null);
+  const nameInputRef = useRef<TextInputInstance>(null);
 
   useEffect(() => {
     if (isEditingName) {

@@ -302,7 +302,7 @@ export async function getCurrentDeviceLocation(): Promise<{
   }
 
   const location = await Location.getCurrentPositionAsync({
-    accuracy: Location.LocationAccuracy.Balanced,
+    accuracy: Location.Accuracy.Balanced,
     mayShowUserSettingsDialog: true,
   });
 

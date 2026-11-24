@@ -102,6 +102,18 @@ cd web
 composer run dev
 ```
 
+#### Docker
+
+The web app can also run in Docker against the shared MySQL container. Set `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` in `web/.env` first, then:
+
+```sh
+cd web
+docker compose up -d --build
+docker compose exec weight-tracker php artisan migrate --force
+```
+
+The app is available at `http://localhost:8001` (host port 8001 maps to container port 8000; the rental app already uses host port 8000). It joins the external `database` network from `C:/Users/marco/docker/database/compose.yml`; the database container publishes no host port. Stop it with `docker compose down`.
+
 ### Mobile
 
 ```sh

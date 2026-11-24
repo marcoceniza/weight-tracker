@@ -18,6 +18,7 @@ import {
   ScrollView,
   Text,
   TextInput,
+  type TextInputInstance,
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -80,9 +81,9 @@ export function OnboardingModal({ onComplete, onFinish }: OnboardingModalProps) 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const pendingFocusStep = useRef<number | null>(null);
-  const nameInputRef = useRef<TextInput>(null);
-  const weightInputRef = useRef<TextInput>(null);
-  const heightInputRef = useRef<TextInput>(null);
+  const nameInputRef = useRef<TextInputInstance>(null);
+  const weightInputRef = useRef<TextInputInstance>(null);
+  const heightInputRef = useRef<TextInputInstance>(null);
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
